@@ -1,6 +1,6 @@
 local StatThingLibrary = {}
 
-local StatTexts = {}
+getgenv().StatTexts = {}
 
 function StatThingLibrary:Create(StatName)
 	local PlayerGui = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -82,15 +82,15 @@ function StatThingLibrary:Create(StatName)
 	UIPadding.Parent = StatText
 
 
-	if not StatTexts[StatName] then
-		StatTexts[StatName] = Stat
+	if not getgenv().StatTexts[StatName] then
+		getgenv().StatTexts[StatName] = Stat
 	else
 		warn("Stat with this name already exists")
 	end
 end
 
 function StatThingLibrary:SetText(StatName, EditText)
-	local Stat = StatTexts[StatName]
+	local Stat = getgenv().StatTexts[StatName]
 	if Stat then
 		local StatText = Stat:FindFirstChild("StatText")
 		if StatText then
@@ -102,16 +102,24 @@ function StatThingLibrary:SetText(StatName, EditText)
 end
 
 function StatThingLibrary:ToggleVisibility(StatName)
-	local Stat = StatTexts[StatName]
+	local Stat = getgenv().StatTexts[StatName]
 	if Stat then
 		Stat.Visible = not Stat.Visible
 	end
 end
 
 function StatThingLibrary:SetVisibility(StatName, Boolean)
-	local Stat = StatTexts[StatName]
+	local Stat = getgenv().StatTexts[StatName]
 	if Stat then
 		Stat.Visible = Boolean
+	end
+end
+
+function StatThingLibrary:RemoveStat(StatName, Boolean)
+	local Stat = getgenv().StatTexts[StatName]
+	if Stat then
+		Stat:Destroy()
+		Stat = nil
 	end
 end
 
