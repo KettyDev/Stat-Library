@@ -13,6 +13,10 @@ function StatThingLibrary:Create(StatName)
 		StatLibGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 	end
 	
+	if getgenv().StatTexts[StatName] then
+		return
+	end
+	
 	local Stat = Instance.new("Frame")
 	Stat.Name = StatName
 	Stat.Position = UDim2.new(0.5, 0, 0.5, 0)
