@@ -132,4 +132,12 @@ function StatThingLibrary:RemoveStat(StatName, Boolean)
 	end
 end
 
+function StatThingLibrary:CheckIfExisting(StatName)
+	if table.find(getgenv().StatTexts, StatName) then
+		return true
+	else
+		return false
+	end
+end
+
 return StatThingLibrary
