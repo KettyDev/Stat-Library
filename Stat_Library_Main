@@ -24,7 +24,7 @@ function StatThingLibrary:Create(StatName)
 	
 	local Stat = Instance.new("Frame")
 	Stat.Name = StatName
-	Stat.Position = UDim2.new(0.5, 0, 0.5, 0)
+	Stat.Position = UDim2.new(0.5, 0, 0.2, 0)
 	Stat.Size = UDim2.new(0.14985, 0, 0.0635497, 0)
 	Stat.BackgroundColor3 = Color3.new(0, 0.12549, 0.211765)
 	Stat.BackgroundTransparency = 0.30000001192092896
