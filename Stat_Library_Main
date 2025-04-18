@@ -2,9 +2,11 @@ local StatThingLibrary = {}
 
 getgenv().StatTexts = {}
 
-for Index, Instance in pairs(game:GetService("Players").LocalPlayer.PlayerGui.StatLibrary:GetChildren()) do
-	Instance:Destroy()
-	getgenv().StatTexts = {}
+if game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("StatLibrary") then
+	for Index, Instance in pairs(game:GetService("Players").LocalPlayer.PlayerGui.StatLibrary:GetChildren()) do
+		Instance:Destroy()
+		getgenv().StatTexts = {}
+	end
 end
 
 function StatThingLibrary:Create(StatName)
