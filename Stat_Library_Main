@@ -133,9 +133,10 @@ function StatThingLibrary:RemoveStat(StatName, Boolean)
 end
 
 function StatThingLibrary:CheckIfExisting(StatName)
-	if table.find(getgenv().StatTexts, StatName) then
+	if getgenv().StatTexts[StatName] then
 		return true
 	else
+		print(StatName.." Doesn't exist.")
 		return false
 	end
 end
